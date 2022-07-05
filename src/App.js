@@ -32,4 +32,7 @@ function App() {
   );
 }
 
-export default App;
+const AuthWrapper = () =>{
+  return <AuthProvider><App/></AuthProvider>
+}
+export default AuthWrapper;

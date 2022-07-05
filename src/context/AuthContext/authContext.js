@@ -5,7 +5,10 @@ const initialValues={
     user:null,
     doLogin:()=>{}
 }
+//create context
 export const AuthContext = createContext({initialValues});
+
+//use context
 export const useAuthContext = ()=>useContext(AuthContext);
 
 
@@ -17,12 +20,17 @@ const [loggedIn, setLoggedIn] = useState(false)
 
 const doLogin=(value)=> {
     setLoggedIn(value)
+    console.log('dologin callled');
 }
 
-setUser()
-setLoggedIn(!loggedIn)
+const setUserData=(value)=> {
+setUser(value)
+console.log('user callled');
 
-const data = {loggedIn, doLogin};
+
+}
+
+const data = {loggedIn, doLogin,setUserData,user};
 return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 
 

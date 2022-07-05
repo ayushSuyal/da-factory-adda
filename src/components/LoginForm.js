@@ -8,6 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import Button from "./Button";
 import 'react-toastify/dist/ReactToastify.css';
 import Label from "./Label";
+import { useAuthContext} from "../context/AuthContext/authContext";
+
+
 
 
 
@@ -25,6 +28,10 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
 
+    // console.log('context',AuthContext,useContext);
+
+    const {doLogin,setUserData}= useAuthContext();
+  
 
     // function to handle email 
 
@@ -90,6 +97,7 @@ const LoginForm = () => {
                 if (user.accessToken != "" && user.uid != "") {
                     setSpin("")
                     setLogin("Login")
+                    doLogin(true)
                     localStorage.setItem("accessToken", user.accessToken);
                     localStorage.setItem("uid", user.uid);                    toast.success('Logged in');
                     navigate("/", { replace: true });

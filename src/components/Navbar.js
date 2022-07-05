@@ -10,18 +10,21 @@ import { NavDropdown } from "react-bootstrap";
 import Drop1 from "./Dropdown1";
 import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
+ import {useAuthContext} from "../context/AuthContext/authContext"
 
 
-function Navv(props) {
+function Navv() {
 
-  const [isLoggedIN,setIsLogged]=useState(false)
+ 
   const navigate= useNavigate();
+  const {loggedIn,user,setUserData,doLogin}= useAuthContext();
 
+console.log({loggedIn},user);
 
-  useEffect(()=>{
-    const accessToken=localStorage.getItem('accessToken')
-    accessToken===null?setIsLogged(false):setIsLogged(true)
- },[])
+//   useEffect(()=>{
+//     const accessToken=localStorage.getItem('accessToken')
+//     accessToken===null?setIsLogged(false):setIsLogged(true)
+//  },[])
 
   
   const handleSignup=()=>{
@@ -50,8 +53,9 @@ function Navv(props) {
       signOut(auth).then(() => {
         localStorage.clear()
       console.log('clear');
-
-          navigate('/login',{replace:true})
+      doLogin(false)
+      setUserData(null) 
+          navigate('/',{replace:true})
       }).catch((error) => {
           console.log("error is" +error)
       });
@@ -78,12 +82,12 @@ function Navv(props) {
         </NavDropdown>      
       </Nav>
       {
-        isLoggedIN ===false?<h6 className="my-2 mr-2"> hello</h6>:<h6 className="my-2 mr-2"> hello {props.userName}</h6>
+        loggedIn ===false?<h6 className="my-2 mr-2"> Hello</h6>:<h6 className="my-2 mr-2"> Hello {user?.name} </h6>
         
       }
       {
     
-     isLoggedIN === false?<Drop handleSignup={handleSignup} handleLogin={handleLogin} className="justify-content-end"/>:<Drop1 handleLogout={handleLogout}/>
+    loggedIn === false?<Drop handleSignup={handleSignup} handleLogin={handleLogin} className="justify-content-end"/>:<Drop1 handleLogout={handleLogout}/>
       }
      <h4 className="mx-3 my-2 cart"><i className="fa-solid fa-cart-shopping" onClick={handleIconClick}></i></h4>
     </Navbar.Collapse>

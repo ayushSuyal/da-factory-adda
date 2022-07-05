@@ -23,6 +23,7 @@ import { db } from "../database/firebase";
 import Footer from "./Footer";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Navigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext/authContext";
 const Home = () => {
 
     const [data, setData] = useState([]);
@@ -30,9 +31,11 @@ const Home = () => {
     const [input, setInput] = useState();
 
     const [datas, setDatas] = useState([]);
-    const [userData, setUserData] = useState({})
+   
     const [loading,setLoading]=useState(false)
     const navigate =useNavigate();
+
+    const {user,setUserData }=useAuthContext()
 
 
     //read from the database
@@ -55,13 +58,14 @@ const Home = () => {
 
     const getUserData = async () => {
         const uidd = localStorage.getItem('uid');
-        console.log(uidd)
+        
         const userRef = collection(db, "Users");
         const q = query(userRef, where("id", "==", uidd));
         const querySnapshot = await getDocs(q);
         console.log({ querySnapshot })
         querySnapshot.forEach((doc) => {
-            setUserData(doc.data());
+          
+            setUserData(doc.data())
         });
 
     }
@@ -100,7 +104,7 @@ const Home = () => {
 
     return (
         <>
-            <Navv userName={userData.name} />
+            <Navv  />
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
