@@ -6,6 +6,7 @@ import Description from "./view/Description";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext/authContext";
 import Cart from "./view/Cart";
+import Buy from "./view/Buy";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
    
     
     <Route path="/login" element={<Login />} />
-
+    <Route path="/buy" element={<Buy />} />
     <Route path="/description/:id" element={<Description />} />
     <Route path="/cart" element={<Cart />} />
     </Routes>

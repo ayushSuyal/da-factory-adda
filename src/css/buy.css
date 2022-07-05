@@ -1,0 +1,65 @@
+.heading2
+{
+    color:rgb(176, 94, 0)
+}
+
+.changebtn
+{
+color: rgb(67, 67, 248);
+cursor: pointer;
+font-size: 15px;
+}
+#borderRow
+{
+    border:1px solid rgb(218, 216, 216);
+    border-radius: 5px;
+
+}
+
+.para11
+{
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+.span11
+{
+    font-weight: lighter;
+}
+/* utility classes  */
+
+.cl
+{
+    color:rgb(176, 94, 0)  
+}
+
+.btnborder
+{
+    border: 1px solid grey;
+}
+
+.font14
+{
+    font-size: 14px;
+}
+
+.fb
+{
+    font-weight: bold;
+}
+
+
+.cartBtn
+{
+    width: 100%;
+    border-radius: 9px;
+    border: none;
+}
+
+.cartBtn:hover
+{
+    background-color: yellow;
+    color: black;
+    border: none;
+}
