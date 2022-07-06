@@ -9,8 +9,8 @@ return(
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1" onClick={props.handleLogin}>Login</Dropdown.Item>
-    <Dropdown.Item href="#/action-2" onClick={props.handleSignup}>Signup</Dropdown.Item>
+    <Dropdown.Item  onClick={props.handleLogin}>Login</Dropdown.Item>
+    <Dropdown.Item  onClick={props.handleSignup}>Signup</Dropdown.Item>
     {/* <Dropdown.Item href="#/action-3" onClick={props.handleLogout}>Logout</Dropdown.Item> */}
   </Dropdown.Menu>
 </Dropdown>

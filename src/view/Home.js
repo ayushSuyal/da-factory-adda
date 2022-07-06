@@ -29,6 +29,7 @@ const Home = () => {
     const [data, setData] = useState([]);
     const [tempData, setTempData] = useState([]);
     const [input, setInput] = useState();
+    const[cartCount,setCartCount]= useState(null);
 
     const [datas, setDatas] = useState([]);
    
@@ -101,10 +102,16 @@ const Home = () => {
     }
  
 
+    //Add to cart function
 
+    const addToCart=()=>
+    {
+       cartCount===null?setCartCount(1):setCartCount(cartCount+1)
+    }
+  
     return (
         <>
-            <Navv  />
+            <Navv  cartCount={cartCount}/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
@@ -183,6 +190,7 @@ const Home = () => {
                                                     <Productcard 
                                                     data={element}
                                                     handleImageClick={handleImageClick}
+                                                    addToCart={addToCart}
                                                    />
                                                 </div>
                                             )

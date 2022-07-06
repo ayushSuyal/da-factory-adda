@@ -20,8 +20,8 @@ const Productcard = (props) => {
                 <div className="card-body">
                     <h6 className="card-title title">{props.data.title}</h6>
                     <p className="card-text para">{props.data.description}</p>
-                    <a  className="btn btn-primary btnp" onClick={handleBuy}>Buy Now</a>
-                    <a href="#" className="btn btn-danger mx-2 my-2 btnp">Add to Cart</a>
+                    <a className="btn btn-primary btnp clw" onClick={handleBuy}>Buy Now</a>
+                    <a className="btn btn-danger mx-2 my-2 btnp clw" onClick={props.addToCart}>Add to Cart</a>
                 </div>
             </div>
     );

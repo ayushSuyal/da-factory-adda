@@ -3,14 +3,13 @@ import { createContext, useContext, useState } from "react";
 const initialValues={
     isLoggedIn:false,
     user:null,
-    doLogin:()=>{}
+  
 }
 //create context
 export const AuthContext = createContext({initialValues});
 
 //use context
 export const useAuthContext = ()=>useContext(AuthContext);
-
 
 
 
@@ -26,8 +25,6 @@ const doLogin=(value)=> {
 const setUserData=(value)=> {
 setUser(value)
 console.log('user callled');
-
-
 }
 
 const data = {loggedIn, doLogin,setUserData,user};

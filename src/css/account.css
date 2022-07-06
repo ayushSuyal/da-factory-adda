@@ -1,0 +1,41 @@
+.maindiv 
+{
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    
+}
+
+.maindiv div
+{
+
+    padding: 6px;
+}
+.maindiv div span{
+    font-weight: bold;
+}
+
+.div2
+{
+    background-color: white;
+}
+
+.main-cont
+{
+    background-image: url("../images/14.jpg");
+    background-repeat: no-repeat;
+    object-fit: contain;
+    height: auto;
+    background-size: 50%;
+    background-position: left center;
+}
+
+.btn1
+{
+
+}
+.btn1:hover
+{
+    background-color: yellow;
+    color: black;
+}
+

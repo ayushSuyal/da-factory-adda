@@ -334,3 +334,25 @@ font-size: 15px;
     color:red !important;
     
 }
+
+
+.clb
+{
+    color:black !important;
+}
+
+.clw
+{
+    color:white !important;
+}
+
+
+.cartfont
+{
+    font-size: 12px;
+    color:black;
+    /* border:1px solid black;
+    border-radius: 100%;
+    padding:2px; */
+
+}

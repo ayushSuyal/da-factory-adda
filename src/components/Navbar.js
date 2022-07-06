@@ -13,7 +13,7 @@ import { useState,useEffect } from "react";
  import {useAuthContext} from "../context/AuthContext/authContext"
 
 
-function Navv() {
+function Navv(props) {
 
  
   const navigate= useNavigate();
@@ -61,24 +61,36 @@ console.log({loggedIn},user);
       });
   }
 
+//function to handle account
 
+const handleAccount=()=>
+{
+  navigate("/account")
+}
+
+//handle home function
+
+const handleHome=()=>
+{
+ 
+}
   return (
     <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand href="/" className="mx-3">da Factory adda</Navbar.Brand>
+    <Navbar.Brand  className="mx-3">da Factory adda</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/" className="mr-3">Home</Nav.Link>
-        <Nav.Link href="#link" className="mr-3">Store</Nav.Link>
-        <Nav.Link href="#link" className="mr-3">Top Selling</Nav.Link>
-        <Nav.Link href="#link" className="mr-3">New Stock</Nav.Link>
+        <Nav.Link className="mr-3" onClick={()=> navigate("/")}>Home</Nav.Link>
+        <Nav.Link  className="mr-3">Store</Nav.Link>
+        <Nav.Link  className="mr-3">Top Selling</Nav.Link>
+        <Nav.Link  className="mr-3">New Stock</Nav.Link>
         <NavDropdown title="Dropdown" className="mr-3" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Item >Action</NavDropdown.Item>
+          <NavDropdown.Item >Another action</NavDropdown.Item>
+          <NavDropdown.Item >Something</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          <NavDropdown.Item>Separated link</NavDropdown.Item>
         </NavDropdown>      
       </Nav>
       {
@@ -87,9 +99,9 @@ console.log({loggedIn},user);
       }
       {
     
-    loggedIn === false?<Drop handleSignup={handleSignup} handleLogin={handleLogin} className="justify-content-end"/>:<Drop1 handleLogout={handleLogout}/>
+    loggedIn === false?<Drop handleSignup={handleSignup} handleLogin={handleLogin} className="justify-content-end"/>:<Drop1 handleLogout={handleLogout} handleAccount={handleAccount}/>
       }
-     <h4 className="mx-3 my-2 cart"><i className="fa-solid fa-cart-shopping" onClick={handleIconClick}></i></h4>
+     <h4 className="mx-3 my-2 cart"><i className="fa-solid fa-cart-shopping" onClick={handleIconClick}><span className="cartfont">{props.cartCount}</span></i></h4>
     </Navbar.Collapse>
   </Container>
 </Navbar>

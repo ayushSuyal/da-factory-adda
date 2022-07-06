@@ -9,11 +9,11 @@ return(
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1" onClick={props.handleLogin}>Order</Dropdown.Item>
-    <Dropdown.Item href="#/action-2" onClick={props.handleSignup}>Cart</Dropdown.Item>
-    <Dropdown.Item href="#/action-3" onClick={props.handleSignup}>Wishlist</Dropdown.Item>
-    <Dropdown.Item href="#/action-4" onClick={props.handleSignup}>Account</Dropdown.Item>
-    <Dropdown.Item href="#/action-5" onClick={props.handleLogout}>Logout</Dropdown.Item>
+    <Dropdown.Item onClick={props.handleLogin}>Order</Dropdown.Item>
+    <Dropdown.Item onClick={props.handleSignup}>Cart</Dropdown.Item>
+    <Dropdown.Item onClick={props.handleSignup}>Wishlist</Dropdown.Item>
+    <Dropdown.Item onClick={p}>Account</Dropdown.Item>
+    <Dropdown.Item onClick={props.handleLogout}>Logout</Dropdown.Item>
   </Dropdown.Menu>
 </Dropdown>
 );
