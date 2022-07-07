@@ -41,11 +41,11 @@ const Description = () => {
 
     //functions of quantity add and sub button
     const onClickMin = () => {
-        setCount(count - 1)
+        setCount(count-1)
     }
 
     const onClickMax = () => {
-        setCount(count + 1)
+       setCount(count+1)
     }
 
     const onChange = (event) => {
@@ -95,7 +95,7 @@ const Description = () => {
                             <h6>Description:</h6>
                             <p>{data.title}</p>
                             <div className="quantity buttons_added">
-                                <input type="button" value="-" className="minus " onClick={onClickMin} /><input type="number" name="quantity" value={count} onChange={onChange} style={{ width: "32px" }} className="mx-2 countIn" /><input type="button" value="+" className="plus" onClick={onClickMax} />
+                                <input type="button" value="-" className="minus " onClick={onClickMin} /><input type="number" name="quantity" value={count} onChange={onChange} style={{ width: "32px" }} className="mx-2 countIn" /><input type="button" value="+" className="plus" onClick={onClickMax} min="1"/>
                                  <button type="button" className="btn btn-primary mx-3 btnn" onClick={handleAddCart}>Add to Cart</button>
                                   <button type="button" className="btn btn-primary mx-1 btnnn"><h5><i className="fa-solid fa-heart"></i></h5></button><button type="button" className="btn btn-primary  btnnn"><h5 className="text-center"><i className="fa-solid fa-chart-simple "></i></h5></button>
                             </div>

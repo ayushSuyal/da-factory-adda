@@ -11,14 +11,14 @@ import Drop1 from "./Dropdown1";
 import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
  import {useAuthContext} from "../context/AuthContext/authContext"
-
+ import {useCartContext} from "../context/cartContext/cartContext"
 
 function Navv(props) {
 
  
   const navigate= useNavigate();
   const {loggedIn,user,setUserData,doLogin}= useAuthContext();
-
+  const {cartItem, addToCart}=useCartContext();
 console.log({loggedIn},user);
 
 //   useEffect(()=>{
@@ -101,7 +101,7 @@ const handleHome=()=>
     
     loggedIn === false?<Drop handleSignup={handleSignup} handleLogin={handleLogin} className="justify-content-end"/>:<Drop1 handleLogout={handleLogout} handleAccount={handleAccount}/>
       }
-     <h4 className="mx-3 my-2 cart"><i className="fa-solid fa-cart-shopping" onClick={handleIconClick}><span className="cartfont">{props.cartCount}</span></i></h4>
+     <h4 className="mx-3 my-2 cart"><i className="fa-solid fa-cart-shopping" onClick={handleIconClick}><span className="cartfont">{cartItem.length}</span></i></h4>
     </Navbar.Collapse>
   </Container>
 </Navbar>

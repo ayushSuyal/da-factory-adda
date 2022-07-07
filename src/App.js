@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/AuthContext/authContext";
 import Cart from "./view/Cart";
 import Buy from "./view/Buy";
 import Account from "./view/Account";
+import { CartProvider } from "./context/cartContext/cartContext";
 
 function App() {
   return (
@@ -35,6 +36,13 @@ function App() {
 }
 
 const AuthWrapper = () =>{
-  return <AuthProvider><App/></AuthProvider>
+  return  <CartProvider><AuthProvider><App/></AuthProvider></CartProvider>
+   
 }
 export default AuthWrapper;
+
+// const CartWrapper=()=> {
+//   return   <CartProvider></CartProvider>
+// }
+
+// export default CartWrapper

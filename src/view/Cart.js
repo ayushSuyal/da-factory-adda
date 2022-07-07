@@ -3,8 +3,12 @@ import Navv from "../components/Navbar";
 import image1 from "../images/13.jpg";
 import Drop2 from "../components/Dropdown2";
 import '../css/style.css';
+import { useCartContext } from "../context/cartContext/cartContext";
 
 const Cart = () => {
+
+    const {cartItem, addToCart}=useCartContext();
+
     return (
         <>
             <Navv />
@@ -21,7 +25,7 @@ const Cart = () => {
                         </div>
                         <div className="row">
                             <div className="col-md-4">
-                                <img src={image1} className="cartImg img-fluid" alt="this is the image" />
+                                <img src={cartItem?.image} className="cartImg img-fluid" alt="this is the image" />
                             </div>
                             <div className="col-md-5">
                                 <h6 className="h6 cartHeading ">

@@ -12,7 +12,7 @@ return(
     <Dropdown.Item onClick={props.handleLogin}>Order</Dropdown.Item>
     <Dropdown.Item onClick={props.handleSignup}>Cart</Dropdown.Item>
     <Dropdown.Item onClick={props.handleSignup}>Wishlist</Dropdown.Item>
-    <Dropdown.Item onClick={p}>Account</Dropdown.Item>
+    <Dropdown.Item onClick={props.handleAccount}>Account</Dropdown.Item>
     <Dropdown.Item onClick={props.handleLogout}>Logout</Dropdown.Item>
   </Dropdown.Menu>
 </Dropdown>

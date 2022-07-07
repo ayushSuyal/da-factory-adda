@@ -24,6 +24,9 @@ import Footer from "./Footer";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext/authContext";
+import { useCartContext } from "../context/cartContext/cartContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
 
     const [data, setData] = useState([]);
@@ -37,6 +40,7 @@ const Home = () => {
     const navigate =useNavigate();
 
     const {user,setUserData }=useAuthContext()
+    const {cartItem, addToCart}=useCartContext();
 
 
     //read from the database
@@ -104,11 +108,12 @@ const Home = () => {
 
     //Add to cart function
 
-    const addToCart=()=>
-    {
-       cartCount===null?setCartCount(1):setCartCount(cartCount+1)
+    const addItemInCart=item=>{
+    //    cartCount===null?setCartCount(1):setCartCount(cartCount+1)
+   
+            addToCart(item);
+
     }
-  
     return (
         <>
             <Navv  cartCount={cartCount}/>
@@ -190,7 +195,7 @@ const Home = () => {
                                                     <Productcard 
                                                     data={element}
                                                     handleImageClick={handleImageClick}
-                                                    addToCart={addToCart}
+                                                    addToCart={addItemInCart}
                                                    />
                                                 </div>
                                             )
@@ -209,6 +214,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </>
     );
 }
